@@ -1,0 +1,7 @@
+base   piwiktagmanager
+author Alexander Lehmann
+email  alexlehm@gmail.com
+date   2024-04-01
+name   Piwik Tag Manager
+desc   Integrate a Piwik tag into the wiki
+url    https://www.lehmann.cx/wiki/projects:dokuwiki_piwik
