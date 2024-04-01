@@ -3,7 +3,7 @@ dokuwiki-plugin-piwik
 
 Dokuwiki plugin for Piwik Tag Manager
 
-Project page: http://www.lehmann.cx/wiki/projects:dokuwiki_piwik
+Project page: https://www.lehmann.cx/wiki/projects:dokuwiki_piwik
 
 For feedback please create an issue https://github.com/alexlehm/dokuwiki-plugin-piwik/issues
 
