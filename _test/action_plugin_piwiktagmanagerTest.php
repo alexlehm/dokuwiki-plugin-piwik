@@ -17,7 +17,9 @@ class action_plugin_piwiktagmanagerTest extends DokuWikiTest
 
         global $conf;
         $pwtmValue = "Xabcdef";
+        $pwtmHostValue = "piwik.lehmann.cx";
         $conf['plugin'][self::pwtmPluginName][action_plugin_piwiktagmanager::PWTMID] = $pwtmValue;
+        $conf['plugin'][self::pwtmPluginName][action_plugin_piwiktagmanager::PWTMHOST] = $pwtmHostValue;
 
         $pageId = 'start';
         saveWikiText($pageId, "Content", 'Script Test base');

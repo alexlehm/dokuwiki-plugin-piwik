@@ -6,6 +6,7 @@ require_once(DOKU_PLUGIN.'action.php');
 class action_plugin_piwiktagmanager extends DokuWiki_Action_Plugin {
 
     const PWTMID = 'PWTMID';
+    const PWTMHOST = 'PWTMHOST';
 
     /**
          * return some info
@@ -42,7 +43,7 @@ class action_plugin_piwiktagmanager extends DokuWiki_Action_Plugin {
   _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
   (function() {
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='https://piwik.lehmann.cx/piwik/js/container_".$this->getConf(self::PWTMID).".js'; s.parentNode.insertBefore(g,s);
+    g.async=true; g.src='https://".$this->getConf(self::PWTMHOST)."/piwik/js/container_".$this->getConf(self::PWTMID).".js'; s.parentNode.insertBefore(g,s);
   })();",
                 );
         }
