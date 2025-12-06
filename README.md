@@ -1,9 +1,9 @@
 dokuwiki-plugin-piwik
 =====================
 
-Dokuwiki plugin for Piwik Tag Manager
+Dokuwiki plugin for Piwik Tag Manager (or Matomo if you prefer)
 
-Project page: https://www.lehmann.cx/wiki/projects:dokuwiki_piwik
+Project page: https://wiki.lehmann.cx/projects:dokuwiki_piwik
 
 For feedback please create an issue https://github.com/alexlehm/dokuwiki-plugin-piwik/issues
 
@@ -18,5 +18,5 @@ the tag is loaded, you can use the definition described in the piwik
 documentation.
 
 
-Alexander Lehmann alexlehm@gmail.com
+Alexander Lehmann alexlehm/@/gmail.com
 

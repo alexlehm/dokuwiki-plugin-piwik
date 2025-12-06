@@ -15,10 +15,10 @@ class action_plugin_piwiktagmanager extends DokuWiki_Action_Plugin {
                 return array(
                         'author' => 'Alexander Lehmann',
                         'email'  => 'alexlehm@gmail.com',
-                        'date'   => '2024-04-01',
-                        'name'   => 'Piwik Tag Manager Plugin',
-                        'desc'   => 'Plugin to embed Piwik Tag Manager in your wiki.',
-                        'url'    => 'https://www.lehmann.cx/wiki/projects:dokuwiki_piwik',
+                        'date'   => '2025-12-06',
+                        'name'   => 'Piwik (Matomo) Tag Manager',
+                        'desc'   => 'Plugin to embed Piwik/Matomo Tag Manager in your wiki.',
+                        'url'    => 'https://wiki.lehmann.cx/projects:dokuwiki_piwik',
                 );
         }
 
