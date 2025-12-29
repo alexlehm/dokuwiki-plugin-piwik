@@ -6,18 +6,17 @@ class action_plugin_piwiktagmanagerTest extends DokuWikiTest
 
     const pwtmPluginName = 'piwiktagmanager';
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->pluginsEnabled[] = self::pwtmPluginName;
         parent::setUp();
     }
 
-    public function test_piwik_tag_manager()
+    public function testPiwikTagManager()
     {
-
         global $conf;
         $pwtmValue = "Xabcdef";
-        $pwtmHostValue = "piwik.lehmann.cx";
+        $pwtmHostValue = "piwik.example.com";
         $conf['plugin'][self::pwtmPluginName][action_plugin_piwiktagmanager::PWTMID] = $pwtmValue;
         $conf['plugin'][self::pwtmPluginName][action_plugin_piwiktagmanager::PWTMHOST] = $pwtmHostValue;
 
@@ -55,8 +54,5 @@ class action_plugin_piwiktagmanagerTest extends DokuWikiTest
             }
             $this->assertEquals(1, $patternFound, "The piwik scripts have been found for the tag $tagSearched");
         }
-
-
     }
-
 }
