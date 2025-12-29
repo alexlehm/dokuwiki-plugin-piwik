@@ -18,5 +18,5 @@ the tag is loaded, you can use the definition described in the piwik
 documentation.
 
 
-Alexander Lehmann alexlehm/@/gmail.com
+Alexander Lehmann alexlehm(at)gmail.com
 
