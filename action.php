@@ -1,7 +1,6 @@
 <?php
 if(!defined('DOKU_INC')) die();
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
-require_once(DOKU_PLUGIN.'action.php');
 
 class action_plugin_piwiktagmanager extends DokuWiki_Action_Plugin {
 
@@ -33,9 +32,6 @@ class action_plugin_piwiktagmanager extends DokuWiki_Action_Plugin {
 
                 if(!$this->getConf(self::PWTMID)) return;
 
-		$event->data['noscript'][] = array (
-                    '_data' => '',
-                );
                 $event->data['script'][] = array (
                     'type' => 'text/javascript',
                     '_data' => "

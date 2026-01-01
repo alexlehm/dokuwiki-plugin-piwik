@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * @group plugin_piwiktagmanager
+ * @group plugins
+ */
 
-class action_plugin_piwiktagmanagerTest extends DokuWikiTest
+namespace dokuwiki\plugin\piwiktagmanager\test;
+
+class action_plugin_piwiktagmanagerTest extends \DokuWikiTest
 {
 
     const pwtmPluginName = 'piwiktagmanager';
@@ -17,8 +23,8 @@ class action_plugin_piwiktagmanagerTest extends DokuWikiTest
         global $conf;
         $pwtmValue = "Xabcdef";
         $pwtmHostValue = "piwik.example.com";
-        $conf['plugin'][self::pwtmPluginName][action_plugin_piwiktagmanager::PWTMID] = $pwtmValue;
-        $conf['plugin'][self::pwtmPluginName][action_plugin_piwiktagmanager::PWTMHOST] = $pwtmHostValue;
+        $conf['plugin'][self::pwtmPluginName]["PWTMID"] = $pwtmValue;
+        $conf['plugin'][self::pwtmPluginName]["PWTMHOST"] = $pwtmHostValue;
 
         $pageId = 'start';
         saveWikiText($pageId, "Content", 'Script Test base');
@@ -27,32 +33,16 @@ class action_plugin_piwiktagmanagerTest extends DokuWikiTest
         $request = new TestRequest();
         $response = $request->get(array('id' => $pageId, '/doku.php'));
 
-        /**
-         * Tags to searched
-         */
-        $tagsSearched = ["script", "noscript"];
+        $domElements = $response->queryHTML("script");
 
-        foreach ($tagsSearched as $tagSearched) {
-
-            $domElements = $response->queryHTML($tagSearched)->get();
-
-            $patternFound = 0;
-            foreach ($domElements as $domElement) {
-                /**
-                 * @var DOMElement $domElement
-                 */
-                if ($tagSearched=="script") {
-                    $value = $domElement->textContent;
-                } else {
-                    // iframe src
-                    $value = $domElement->firstChild->getAttribute("src");
-                }
-                $patternFound = preg_match("/$pwtmValue/i", $value);
-                if ($patternFound === 1) {
-                    break;
-                }
+        $patternFound = false;
+        foreach ($domElements as $domElement) {
+            $value = $domElement->textContent;
+            $patternFound = preg_match("/$pwtmHostValue.*$pwtmValue/i", $value) === 1;
+            if ($patternFound) {
+                break;
             }
-            $this->assertEquals(1, $patternFound, "The piwik scripts have been found for the tag $tagSearched");
         }
+        $this->assertTrue($patternFound, "The piwik script was not found in the script tags");
     }
 }
