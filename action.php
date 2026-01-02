@@ -28,7 +28,7 @@ class action_plugin_piwiktagmanager extends DokuWiki_Action_Plugin
         $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this, 'addHeaders');
     }
 
-    private function addHeaders(&$event, $param)
+    public function addHeaders(&$event, $param)
     {
 
             if (!$this->getConf(self::PWTMID)) return;

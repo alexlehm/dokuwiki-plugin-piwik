@@ -5,8 +5,6 @@
  * @group plugins
  */
 
-namespace dokuwiki\plugin\piwiktagmanager\test;
-
 class action_plugin_piwiktagmanagerTest extends \DokuWikiTest
 {
 
