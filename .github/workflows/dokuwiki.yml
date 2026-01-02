@@ -5,7 +5,6 @@ on:
 #  schedule:
 #    - cron: '19 8 25 * *'
 
-
 jobs:
   all:
     uses: dokuwiki/github-action/.github/workflows/all.yml@main

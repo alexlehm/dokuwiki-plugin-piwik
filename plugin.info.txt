@@ -1,7 +1,7 @@
 base   piwiktagmanager
 author Alexander Lehmann
 email  alexlehm@gmail.com
-date   2025-12-06
+date   2026-01-02
 name   Piwik (Matomo) Tag Manager
 desc   Integrate a Piwik/Matomo tag into the wiki
 url    https://wiki.lehmann.cx/projects:dokuwiki_piwik
