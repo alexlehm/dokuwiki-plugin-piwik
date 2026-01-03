@@ -29,7 +29,7 @@ class action_plugin_piwiktagmanagerTest extends \DokuWikiTest
         idx_addPage($pageId);
 
         $request = new TestRequest();
-        $response = $request->get(array('id' => $pageId, '/doku.php'));
+        $response = $request->get(['id' => $pageId, '/doku.php']);
 
         $domElements = $response->queryHTML("script");
 
