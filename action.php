@@ -18,19 +18,19 @@ class action_plugin_piwiktagmanager extends ActionPlugin
 
     public function addHeaders(&$event, $param)
     {
+        $host = $this->getConf(self::PWTMHOST);
+        $id   = $this->getConf(self::PWTMID);
 
-            if (!$this->getConf(self::PWTMID)) return;
+        if (!$host || !$id) return;
 
-            $event->data['script'][] = ['type' => 'text/javascript', '_data' => "
-  var _mtm = window._mtm = window._mtm || [];
-  _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-  (function() {
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='https://" .
-        $this->getConf(self::PWTMHOST) .
-        "/piwik/js/container_" .
-        $this->getConf(self::PWTMID) .
-        ".js'; s.parentNode.insertBefore(g,s);
-  })();"];
+        $event->data['script'][] = ['type' => 'text/javascript', '_data' => <<<EOT
+            var _mtm = window._mtm = window._mtm || [];
+            _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+            (function() {
+              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+              g.async=true; g.src='https://{$host}/piwik/js/container_{$id}.js'; s.parentNode.insertBefore(g,s);
+            })();
+            EOT
+        ];
     }
 }
